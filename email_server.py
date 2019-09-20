@@ -14,7 +14,7 @@ receiver_email = 'smtpforletslearnabout@gmail.com'
 password = input('Please, type your password:\n')
 
 # Email text
-email_text_sent = '''
+email_body = '''
   This is a test email sent by Python. Isn't that cool?
 '''
 
@@ -27,7 +27,7 @@ def send_email():
         context = ssl.create_default_context()
         server.starttls(context=context)
         server.login(sender_email, password)
-        server.sendmail(sender_email, receiver_email, email_text_sent)
+        server.sendmail(sender_email, receiver_email, email_body)
 
         print('Email sent!')
     except Exepction as e:
