@@ -6,25 +6,29 @@ from email.utils import formataddr
 # User configuration
 sender_email = 'smtpforletslearnabout@gmail.com'
 sender_name = 'David from LetsLearnAbout.net'
-password = input('Please, type your password:\n')
+# password = input('Please, type your password:\n')
+password = 'nonono33'
 
 # receiver_email = 'smtpforletslearnabout@gmail.com'
 # receiver_name = 'My Alter-ego'
 receiver_emails = ['smtpforletslearnabout@gmail.com',
                    'smtpforletslearnabout@gmail.com', 'smtpforletslearnabout@gmail.com']
-receiver_names = ['My Alter-ego', 'Karen from the gym', 'Kevin from the subway']
+receiver_names = ['My Alter-ego',
+                  'Karen from the gym', 'Kevin from the subway']
 
 # Email text
-email_body = '''
-	This is a test email sent by Python. Isn't that cool?
-'''
+# email_body = '''
+# 	This is a test email sent by Python. Isn't that cool?
+# '''
+email_html = open('email.html')
+email_body = email_html.read()
 
+for receiver_email, receiver_name in zip(receiver_emails[:1], receiver_names[:1]):
 
-def send_email(sender_email, sender_name, password, receiver_email, receiver_name):
     print(f'Sending an email to {receiver_name}...')
 
     # Configurating user's info
-    msg = MIMEText(email_body, 'plain')
+    msg = MIMEText(email_body, 'html')
     msg['To'] = formataddr((receiver_name, receiver_email))
     msg['From'] = formataddr((sender_name, sender_email))
     msg['Subject'] = 'Hello, my friend ' + receiver_name
@@ -43,9 +47,3 @@ def send_email(sender_email, sender_name, password, receiver_email, receiver_nam
     finally:
         print('Closing the server...')
         server.quit()
-
-
-if __name__ == "__main__":
-    for receiver_email, receiver_name in zip(receiver_emails, receiver_names):
-        send_email(sender_email, sender_name, password,
-                   receiver_email, receiver_name)
