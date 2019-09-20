@@ -28,8 +28,7 @@ email_body = email_html.read()
 
 filename = 'cat.gif'
 
-
-for receiver_email, receiver_name in zip(receiver_emails[:1], receiver_names[:1]):
+for receiver_email, receiver_name in zip(receiver_emails, receiver_names):
 
 	print(f'Sending an email to {receiver_name}...')
 
