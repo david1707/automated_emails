@@ -1,0 +1,4 @@
+# Rubbish
+*.vscode
+Pipfile
+Pipfile.lock
