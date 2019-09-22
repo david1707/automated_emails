@@ -9,8 +9,7 @@ from email import encoders
 # User configuration
 sender_email = 'smtpforletslearnabout@gmail.com'
 sender_name = 'David from LetsLearnAbout.net'
-# password = input('Please, type your password:\n')
-password = 'nonono33'
+password = input('Please, type your password:\n')
 
 # receiver_email = 'smtpforletslearnabout@gmail.com'
 # receiver_name = 'My Alter-ego'
